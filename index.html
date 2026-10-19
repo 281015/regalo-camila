@@ -238,6 +238,7 @@
   const CANCION_LOCAL = "cancion.mp3";
   const YOUTUBE_ID = "3Ion7Vwt0Y8";      // Backstreet Boys - Tell Me Why
   const CARPETA_FOTOS = "fotos/";       // fotos nombradas 01.jpg, 02.jpg, 03.png ...
+  const VERSION_FOTOS = "2";            // súbelo al cambiar fotos, para que no se vea la versión guardada
 
   // ---- Música ----
   const boton = document.getElementById("musica");
@@ -357,7 +358,7 @@
     const fotos = [];
     for (let n = 1; n <= 99; n++) {
       const num = String(n).padStart(2, "0");
-      const hallada = (await Promise.all(EXTENSIONES.map(ext => cargar(CARPETA_FOTOS + num + "." + ext)))).find(Boolean);
+      const hallada = (await Promise.all(EXTENSIONES.map(ext => cargar(CARPETA_FOTOS + num + "." + ext + "?v=" + VERSION_FOTOS)))).find(Boolean);
       if (!hallada) break;
       fotos.push(hallada);
     }
