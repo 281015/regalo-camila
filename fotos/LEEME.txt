@@ -1,4 +1,5 @@
 Deja aquí las fotos con nombres numerados: 01.jpg, 02.jpg, 03.jpg ...
 - La 01 va en el círculo de la portada.
 - Las siguientes aparecen en orden en "Nuestra historia", antes del discurso.
-Sirven .jpg, .jpeg, .png y .webp. No dejes números saltados (si falta la 05, se detiene en la 04).
+Tienen que ser .jpg y sin números saltados.
+Si agregas o quitas fotos, cambia TOTAL_FOTOS en index.html (y sube VERSION_FOTOS).

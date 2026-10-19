@@ -237,8 +237,9 @@
   // Si dejas un archivo "cancion.mp3" en esta carpeta se usa ese; si no, suena YouTube.
   const CANCION_LOCAL = "cancion.mp3";
   const YOUTUBE_ID = "3Ion7Vwt0Y8";      // Backstreet Boys - Tell Me Why
-  const CARPETA_FOTOS = "fotos/";       // fotos nombradas 01.jpg, 02.jpg, 03.png ...
-  const VERSION_FOTOS = "3";            // súbelo al cambiar fotos, para que no se vea la versión guardada
+  const CARPETA_FOTOS = "fotos/";       // fotos nombradas 01.jpg, 02.jpg, 03.jpg ...
+  const TOTAL_FOTOS = 13;               // cuántas fotos hay en la carpeta (la 01 es la portada)
+  const VERSION_FOTOS = "4";           // súbelo al cambiar fotos, para que no se vea la versión guardada
 
   // ---- Música ----
   const boton = document.getElementById("musica");
@@ -349,24 +350,12 @@
   }
   actualizarCuenta();
 
-  // ---- Fotos: busca fotos/01.jpg, 02.jpg ... hasta que falte una ----
-  const EXTENSIONES = ["jpg", "jpeg", "png", "webp", "JPG", "JPEG", "PNG"];
-  function cargar(src) {
-    return new Promise(ok => { const i = new Image(); i.onload = () => ok(src); i.onerror = () => ok(null); i.src = src; });
-  }
-  async function buscarFotos() {
-    const fotos = [];
-    for (let n = 1; n <= 99; n++) {
-      const num = String(n).padStart(2, "0");
-      const hallada = (await Promise.all(EXTENSIONES.map(ext => cargar(CARPETA_FOTOS + num + "." + ext + "?v=" + VERSION_FOTOS)))).find(Boolean);
-      if (!hallada) break;
-      fotos.push(hallada);
-    }
-    return fotos;
-  }
-  buscarFotos().then(fotos => {
-    if (!fotos.length) return;
+  // ---- Fotos: fotos/01.jpg ... hasta TOTAL_FOTOS (sin adivinar nombres, para no pedir archivos que no existen) ----
+  const fotos = Array.from({ length: TOTAL_FOTOS }, (_, i) =>
+    CARPETA_FOTOS + String(i + 1).padStart(2, "0") + ".jpg?v=" + VERSION_FOTOS);
+  if (fotos.length) {
     const portadaImg = document.getElementById("fotoPortada");
+    portadaImg.fetchPriority = "high";
     portadaImg.src = fotos.shift();
     portadaImg.hidden = false;
 
@@ -375,12 +364,12 @@
     fotos.forEach(src => {
       const marco = document.createElement("figure");
       marco.className = "polaroid";
-      marco.innerHTML = `<img src="${src}" alt="">`;
+      marco.innerHTML = `<img src="${src}" alt="" decoding="async">`;
       grilla.appendChild(marco);
       observar(marco);
     });
     if (fotos.length) document.getElementById("galeria").classList.add("con-fotos");
-  });
+  }
 </script>
 </body>
 </html>
