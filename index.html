@@ -163,8 +163,6 @@
   #musica.listo { display: flex; }
   #musica.sonando { animation: gira 6s linear infinite; }
   @keyframes gira { to { transform: rotate(360deg); } }
-  /* El reproductor de YouTube queda chiquito en una esquina, casi invisible */
-  #yt { position: fixed; left: 0; bottom: 0; width: 1px; height: 1px; opacity: .01; pointer-events: none; }
 
   /* Pétalos */
   .petalo {
@@ -230,55 +228,26 @@
 </footer>
 
 <button id="musica" aria-label="Pausar o reanudar la música">♫</button>
-<div id="yt"></div>
 
 <script>
   // ---- Configuración ----
-  // Si dejas un archivo "cancion.mp3" en esta carpeta se usa ese; si no, suena YouTube.
-  const CANCION_LOCAL = "cancion.mp3";
-  const YOUTUBE_ID = "3Ion7Vwt0Y8";      // Backstreet Boys - Tell Me Why
+  const CANCION = "cancion.mp3";        // Backstreet Boys - I Want It That Way
   const CARPETA_FOTOS = "fotos/";       // fotos nombradas 01.jpg, 02.jpg, 03.jpg ...
   const TOTAL_FOTOS = 13;               // cuántas fotos hay en la carpeta (la 01 es la portada)
   const VERSION_FOTOS = "4";           // súbelo al cambiar fotos, para que no se vea la versión guardada
 
   // ---- Música ----
   const boton = document.getElementById("musica");
-  let audio = null, yt = null, ytListo = false, quiereSonar = false, sonando = false;
+  let sonando = false;
+  const audio = new Audio(CANCION);
+  audio.preload = "auto";
+  audio.loop = true;
+  audio.volume = .8;
 
   function marcar(on) { sonando = on; boton.classList.toggle("sonando", on); }
 
-  // ¿Existe cancion.mp3?
-  const pruebaAudio = new Audio();
-  pruebaAudio.preload = "auto";
-  pruebaAudio.loop = true;
-  pruebaAudio.addEventListener("canplay", () => { audio = pruebaAudio; }, { once: true });
-  pruebaAudio.src = CANCION_LOCAL;
-
-  // Reproductor de YouTube (respaldo)
-  window.onYouTubeIframeAPIReady = () => {
-    yt = new YT.Player("yt", {
-      width: 200, height: 200, videoId: YOUTUBE_ID,
-      playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: YOUTUBE_ID, playsinline: 1, rel: 0 },
-      events: {
-        onReady: () => { ytListo = true; if (quiereSonar && !audio) tocar(); },
-        onStateChange: e => { if (!audio) marcar(e.data === YT.PlayerState.PLAYING); }
-      }
-    });
-  };
-  const tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.head.appendChild(tag);
-
-  function tocar() {
-    quiereSonar = true;
-    if (audio) { audio.volume = .8; audio.play().then(() => marcar(true)).catch(() => {}); }
-    else if (ytListo) { yt.setVolume(80); yt.playVideo(); }
-  }
-  function pausar() {
-    quiereSonar = false;
-    if (audio) audio.pause(); else if (ytListo) yt.pauseVideo();
-    marcar(false);
-  }
+  function tocar() { audio.play().then(() => marcar(true)).catch(() => {}); }
+  function pausar() { audio.pause(); marcar(false); }
   boton.addEventListener("click", () => (sonando ? pausar() : tocar()));
 
   // ---- Abrir el sobre ----
