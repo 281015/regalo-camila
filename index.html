@@ -134,14 +134,20 @@
   .polaroid.visible { transform: rotate(var(--giro)); }
   .polaroid img { width: 100%; height: auto; display: block; }
 
-  /* Sobre bloqueado hasta la fecha */
-  .cuenta { margin-top: 18px; display: none; gap: 14px; justify-content: center; }
-  #portada.bloqueado .cuenta { display: flex; }
-  .cuenta div { min-width: 62px; padding: 8px 6px; background: rgba(255,255,255,.7); border-radius: 6px; }
+  /* Discurso bloqueado hasta la fecha */
+  .candado {
+    background: var(--papel); border: 1px solid #f0e4dc; border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(120,80,70,.10);
+    padding: 40px 22px; text-align: center;
+  }
+  .candado[hidden] { display: none; }
+  .candado .icono { font-size: 40px; color: var(--dorado); margin-bottom: 8px; }
+  .candado p { font-style: italic; color: var(--tinta-suave); }
+  .candado p b { font-style: normal; font-weight: 500; color: var(--tinta); }
+  .cuenta { margin-top: 22px; display: flex; gap: 10px; justify-content: center; }
+  .cuenta div { min-width: 60px; padding: 8px 4px; background: var(--rosa-suave); border-radius: 6px; }
   .cuenta b { display: block; font-size: 30px; font-weight: 500; color: var(--dorado); line-height: 1.1; }
-  .cuenta span { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-suave); }
-  #portada.tiembla .sobre { animation: tiembla .5s; }
-  @keyframes tiembla { 20%, 60% { transform: translateX(-8px) rotate(-2deg); } 40%, 80% { transform: translateX(8px) rotate(2deg); } }
+  .cuenta span { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--tinta-suave); }
 
   footer { text-align: center; padding: 50px 20px 90px; }
   footer .familia { font-family: "Great Vibes", cursive; font-size: clamp(40px, 10vw, 58px); color: var(--dorado); }
@@ -184,13 +190,7 @@
 <div id="portada" role="button" tabindex="0" aria-label="Abrir el regalo">
   <div class="sobre"><div class="sello">C&amp;F</div></div>
   <div class="para">Para Camila &amp; Felipe</div>
-  <div class="toca" id="toca">Toca el sobre para abrirlo ♡</div>
-  <div class="cuenta" aria-live="polite">
-    <div><b id="cd-d">0</b><span>días</span></div>
-    <div><b id="cd-h">0</b><span>horas</span></div>
-    <div><b id="cd-m">0</b><span>min</span></div>
-    <div><b id="cd-s">0</b><span>seg</span></div>
-  </div>
+  <div class="toca">Toca el sobre para abrirlo ♡</div>
 </div>
 
 <header>
@@ -210,25 +210,17 @@
 
 <main>
   <h2 class="titulo-seccion aparece">Unas palabras para ti, amiga</h2>
-  <article class="carta" id="carta">
-    <p>Hola a todas y a todos, realmente es un honor estar acá, para quienes no me conocen soy Tamara y tengo la suerte de ser amiga de la novia.</p>
-    <p>Hay personas que llegan a nuestra vida y sin darnos cuenta se convierten en parte de ella para siempre.</p>
-    <p>Con la Kimi nos conocemos hace más de 20 años, fuimos compañeras del colegio, aún recuerdo cuando entró a la sala y se sentó a mi lado fue como amor a primera vista jajaja desde ese entonces hemos estado para la otra en los momentos más importantes de nuestras vidas.</p>
-    <p>Durante todos estos años hemos vivido muchas anécdotas, se podrán imaginar a una Kimi adolescente de partida saludando a todo el colegio, pasamos por un momento donde nos creíamos pokemonas y hasta fotolog grupal tuvimos, fotos que veríamos ahora de nuestro pasado y sin duda nos darían como dicen nuestras hijas cringe jajajja, de chica su casa era el punto de encuentro y celebración de todas las fiestas que se le pudieran ocurrir y la tía Adriana siempre muy amable y servicial feliz nos recibía con su típico ponche y además se bancaba el que llegaran los carabineros de vez en cuando por el ruido, pero eso no impedía que su hogar volviera a ser el lugar donde recibía a los tantos amigos de la Kimi una y otra vez.</p>
-    <p>Cómo olvidar cuando nos juntamos las 3 con la Sara en una cafetería, felices conversando y poniéndonos al día de nuestra vida se nos pasó la hora y nuestros autos quedaron atrapados en el estacionamiento de un supermercado, nuestros pololos felices al día siguiente tuvieron que ir al rescate.</p>
-    <p>La Kimi es una mujer de un carácter único, tiene un poder de convencimiento increíble, tremendamente luchadora, generosa, honrada, hermosa, inteligente, muuuuuy sociable, fiel, buena amiga, hija, hermana, madre y ahora esposa, es una mujer inspiradora, soñadora, nunca se da por vencida y lucha inalcanzablemente por lo que quiere, definitivamente no pasa desapercibida en ningún lugar a donde vaya, es de esas personas que dejan una huella en quienes la conocen, con una personalidad extrovertida irradiando alegría y dispuesta siempre a entregar una sonrisa, perfeccionista y definitivamente ningún detalle se le puede escapar porque en todo lo que hace da lo mejor de ella. Es una mamá ejemplar, su vida gira en torno a sus hijas, mamá matea que entrega su mejor versión día a día y que su pilar fundamental es su familia.</p>
-    <p>Una de las cosas que más admiro de ti amiga es tu gran fortaleza y resiliencia, ante las adversidades y pruebas que te ha puesto la vida siempre sabes cómo salir adelante, y agradezco que en momentos difíciles siempre hayas querido contar conmigo.</p>
-    <p>La vida nos ha demostrado que nuestra amistad es para toda la vida, hemos vivido momentos de risa, llanto, penas y alegrías, hemos ido creciendo juntas, acompañándonos y sosteniéndonos en los momentos más difíciles, eres de esas amigas que se convierten en familia, la hermana que escogí y que llegó a mi vida para iluminarla, morirme de la risa con tus audios tipo podcast, definitivamente contigo no se pasan penas, eres una persona profundamente valiosa, de esas que hacen más bonito el mundo simplemente por existir.</p>
-    <p>Después de tantos años, verte hoy aquí me emociona profundamente, siento una mezcla de nostalgia y orgullo, nostalgia por recordar las adolescentes que fuimos y por pensar que la misma persona con la que compartía mis recreos en el colegio ahora se está casando y dando un gran paso en su vida y orgullo por ver en la mujer en la que te has convertido, ver todo lo que has logrado, acompañada del hombre que amas y que se robó tu corazón, que además formaron una familia hermosa junto con la Emi y la Titi a quienes amo profundamente y que siempre estaré para ellas.</p>
-    <p>Realmente ha sido un honor ser tu dama de honor, gracias amiga por hacerme parte de tu bride era y por permitirme vivir este proceso tan de cerca, disfruté mucho ayudarte, aconsejarte y contenerte durante todo este tiempo y nunca olvidaré cuando ambas nos miramos, con los ojos llenos de lágrimas y sabíamos que ese era el vestido.</p>
-    <p>Espero que la vida nos siga llenando de momentos maravillosos, conversaciones interminables, risas hasta llorar, que la vida nos permita seguir encontrándonos en cada etapa y que continuemos creando recuerdos que con el pasar de los años miraremos con nostalgia, que sigamos celebrando nuestros triunfos y alegrías y que estemos para la otra en los momentos que parecen más difíciles.</p>
-    <p>Felipe, definitivamente eres el mejor complemento que la Kimi pudiera tener, apañador, esforzado, trabajador, bondadoso, un tremendo papá y que cuida y ama a su familia por sobre todas las cosas, valoro mucho y agradezco tu ayuda cuando he necesitado contar contigo y muchas gracias por cuidar, amar y hacer muy feliz a mi amiga.</p>
-    <p>Me emociona verlos rodeados de amor y verlos crecer como pareja, ustedes realmente son un ejemplo de perseverancia, cariño, amor y respeto, este camino no ha sido fácil, pero ante todo siempre en ustedes ha triunfado el amor.</p>
-    <p>Les deseo toda una vida juntos, que nunca olviden lo que los hizo elegirse y que aun en los días más difíciles sigan caminando de la mano y que algún día cuando miren hacia atrás, sientan que haber elegido compartir la vida con el otro fue la mejor decisión que tomaron.</p>
-    <p>Los quiero mucho familia Muñoz-Escobar y acá siempre estaré para ustedes.</p>
-    <p>Muchas gracias.</p>
-    <div class="firma">Con todo mi cariño,<span class="nombre">Tamara</span>Santiago, 23 de octubre de 2026</div>
-  </article>
+  <div class="candado" id="candado">
+    <div class="icono">✉</div>
+    <p>Mis palabras para ti se abren el<br><b>sábado 24 de octubre</b></p>
+    <div class="cuenta" aria-live="polite">
+      <div><b id="cd-d">0</b><span>días</span></div>
+      <div><b id="cd-h">0</b><span>horas</span></div>
+      <div><b id="cd-m">0</b><span>min</span></div>
+      <div><b id="cd-s">0</b><span>seg</span></div>
+    </div>
+  </div>
+  <article class="carta" id="carta" hidden data-texto="PHA+SG9sYSBhIHRvZGFzIHkgYSB0b2RvcywgcmVhbG1lbnRlIGVzIHVuIGhvbm9yIGVzdGFyIGFjw6EsIHBhcmEgcXVpZW5lcyBubyBtZSBjb25vY2VuIHNveSBUYW1hcmEgeSB0ZW5nbyBsYSBzdWVydGUgZGUgc2VyIGFtaWdhIGRlIGxhIG5vdmlhLjwvcD4KICAgIDxwPkhheSBwZXJzb25hcyBxdWUgbGxlZ2FuIGEgbnVlc3RyYSB2aWRhIHkgc2luIGRhcm5vcyBjdWVudGEgc2UgY29udmllcnRlbiBlbiBwYXJ0ZSBkZSBlbGxhIHBhcmEgc2llbXByZS48L3A+CiAgICA8cD5Db24gbGEgS2ltaSBub3MgY29ub2NlbW9zIGhhY2UgbcOhcyBkZSAyMCBhw7FvcywgZnVpbW9zIGNvbXBhw7FlcmFzIGRlbCBjb2xlZ2lvLCBhw7puIHJlY3VlcmRvIGN1YW5kbyBlbnRyw7MgYSBsYSBzYWxhIHkgc2Ugc2VudMOzIGEgbWkgbGFkbyBmdWUgY29tbyBhbW9yIGEgcHJpbWVyYSB2aXN0YSBqYWphamEgZGVzZGUgZXNlIGVudG9uY2VzIGhlbW9zIGVzdGFkbyBwYXJhIGxhIG90cmEgZW4gbG9zIG1vbWVudG9zIG3DoXMgaW1wb3J0YW50ZXMgZGUgbnVlc3RyYXMgdmlkYXMuPC9wPgogICAgPHA+RHVyYW50ZSB0b2RvcyBlc3RvcyBhw7FvcyBoZW1vcyB2aXZpZG8gbXVjaGFzIGFuw6ljZG90YXMsIHNlIHBvZHLDoW4gaW1hZ2luYXIgYSB1bmEgS2ltaSBhZG9sZXNjZW50ZSBkZSBwYXJ0aWRhIHNhbHVkYW5kbyBhIHRvZG8gZWwgY29sZWdpbywgcGFzYW1vcyBwb3IgdW4gbW9tZW50byBkb25kZSBub3MgY3Jlw61hbW9zIHBva2Vtb25hcyB5IGhhc3RhIGZvdG9sb2cgZ3J1cGFsIHR1dmltb3MsIGZvdG9zIHF1ZSB2ZXLDrWFtb3MgYWhvcmEgZGUgbnVlc3RybyBwYXNhZG8geSBzaW4gZHVkYSBub3MgZGFyw61hbiBjb21vIGRpY2VuIG51ZXN0cmFzIGhpamFzIGNyaW5nZSBqYWphamphLCBkZSBjaGljYSBzdSBjYXNhIGVyYSBlbCBwdW50byBkZSBlbmN1ZW50cm8geSBjZWxlYnJhY2nDs24gZGUgdG9kYXMgbGFzIGZpZXN0YXMgcXVlIHNlIGxlIHB1ZGllcmFuIG9jdXJyaXIgeSBsYSB0w61hIEFkcmlhbmEgc2llbXByZSBtdXkgYW1hYmxlIHkgc2VydmljaWFsIGZlbGl6IG5vcyByZWNpYsOtYSBjb24gc3UgdMOtcGljbyBwb25jaGUgeSBhZGVtw6FzIHNlIGJhbmNhYmEgZWwgcXVlIGxsZWdhcmFuIGxvcyBjYXJhYmluZXJvcyBkZSB2ZXogZW4gY3VhbmRvIHBvciBlbCBydWlkbywgcGVybyBlc28gbm8gaW1wZWTDrWEgcXVlIHN1IGhvZ2FyIHZvbHZpZXJhIGEgc2VyIGVsIGx1Z2FyIGRvbmRlIHJlY2liw61hIGEgbG9zIHRhbnRvcyBhbWlnb3MgZGUgbGEgS2ltaSB1bmEgeSBvdHJhIHZlei48L3A+CiAgICA8cD5Dw7NtbyBvbHZpZGFyIGN1YW5kbyBub3MganVudGFtb3MgbGFzIDMgY29uIGxhIFNhcmEgZW4gdW5hIGNhZmV0ZXLDrWEsIGZlbGljZXMgY29udmVyc2FuZG8geSBwb25pw6luZG9ub3MgYWwgZMOtYSBkZSBudWVzdHJhIHZpZGEgc2Ugbm9zIHBhc8OzIGxhIGhvcmEgeSBudWVzdHJvcyBhdXRvcyBxdWVkYXJvbiBhdHJhcGFkb3MgZW4gZWwgZXN0YWNpb25hbWllbnRvIGRlIHVuIHN1cGVybWVyY2FkbywgbnVlc3Ryb3MgcG9sb2xvcyBmZWxpY2VzIGFsIGTDrWEgc2lndWllbnRlIHR1dmllcm9uIHF1ZSBpciBhbCByZXNjYXRlLjwvcD4KICAgIDxwPkxhIEtpbWkgZXMgdW5hIG11amVyIGRlIHVuIGNhcsOhY3RlciDDum5pY28sIHRpZW5lIHVuIHBvZGVyIGRlIGNvbnZlbmNpbWllbnRvIGluY3Jlw61ibGUsIHRyZW1lbmRhbWVudGUgbHVjaGFkb3JhLCBnZW5lcm9zYSwgaG9ucmFkYSwgaGVybW9zYSwgaW50ZWxpZ2VudGUsIG11dXV1dXkgc29jaWFibGUsIGZpZWwsIGJ1ZW5hIGFtaWdhLCBoaWphLCBoZXJtYW5hLCBtYWRyZSB5IGFob3JhIGVzcG9zYSwgZXMgdW5hIG11amVyIGluc3BpcmFkb3JhLCBzb8OxYWRvcmEsIG51bmNhIHNlIGRhIHBvciB2ZW5jaWRhIHkgbHVjaGEgaW5hbGNhbnphYmxlbWVudGUgcG9yIGxvIHF1ZSBxdWllcmUsIGRlZmluaXRpdmFtZW50ZSBubyBwYXNhIGRlc2FwZXJjaWJpZGEgZW4gbmluZ8O6biBsdWdhciBhIGRvbmRlIHZheWEsIGVzIGRlIGVzYXMgcGVyc29uYXMgcXVlIGRlamFuIHVuYSBodWVsbGEgZW4gcXVpZW5lcyBsYSBjb25vY2VuLCBjb24gdW5hIHBlcnNvbmFsaWRhZCBleHRyb3ZlcnRpZGEgaXJyYWRpYW5kbyBhbGVncsOtYSB5IGRpc3B1ZXN0YSBzaWVtcHJlIGEgZW50cmVnYXIgdW5hIHNvbnJpc2EsIHBlcmZlY2Npb25pc3RhIHkgZGVmaW5pdGl2YW1lbnRlIG5pbmfDum4gZGV0YWxsZSBzZSBsZSBwdWVkZSBlc2NhcGFyIHBvcnF1ZSBlbiB0b2RvIGxvIHF1ZSBoYWNlIGRhIGxvIG1lam9yIGRlIGVsbGEuIEVzIHVuYSBtYW3DoSBlamVtcGxhciwgc3UgdmlkYSBnaXJhIGVuIHRvcm5vIGEgc3VzIGhpamFzLCBtYW3DoSBtYXRlYSBxdWUgZW50cmVnYSBzdSBtZWpvciB2ZXJzacOzbiBkw61hIGEgZMOtYSB5IHF1ZSBzdSBwaWxhciBmdW5kYW1lbnRhbCBlcyBzdSBmYW1pbGlhLjwvcD4KICAgIDxwPlVuYSBkZSBsYXMgY29zYXMgcXVlIG3DoXMgYWRtaXJvIGRlIHRpIGFtaWdhIGVzIHR1IGdyYW4gZm9ydGFsZXphIHkgcmVzaWxpZW5jaWEsIGFudGUgbGFzIGFkdmVyc2lkYWRlcyB5IHBydWViYXMgcXVlIHRlIGhhIHB1ZXN0byBsYSB2aWRhIHNpZW1wcmUgc2FiZXMgY8OzbW8gc2FsaXIgYWRlbGFudGUsIHkgYWdyYWRlemNvIHF1ZSBlbiBtb21lbnRvcyBkaWbDrWNpbGVzIHNpZW1wcmUgaGF5YXMgcXVlcmlkbyBjb250YXIgY29ubWlnby48L3A+CiAgICA8cD5MYSB2aWRhIG5vcyBoYSBkZW1vc3RyYWRvIHF1ZSBudWVzdHJhIGFtaXN0YWQgZXMgcGFyYSB0b2RhIGxhIHZpZGEsIGhlbW9zIHZpdmlkbyBtb21lbnRvcyBkZSByaXNhLCBsbGFudG8sIHBlbmFzIHkgYWxlZ3LDrWFzLCBoZW1vcyBpZG8gY3JlY2llbmRvIGp1bnRhcywgYWNvbXBhw7HDoW5kb25vcyB5IHNvc3RlbmnDqW5kb25vcyBlbiBsb3MgbW9tZW50b3MgbcOhcyBkaWbDrWNpbGVzLCBlcmVzIGRlIGVzYXMgYW1pZ2FzIHF1ZSBzZSBjb252aWVydGVuIGVuIGZhbWlsaWEsIGxhIGhlcm1hbmEgcXVlIGVzY29nw60geSBxdWUgbGxlZ8OzIGEgbWkgdmlkYSBwYXJhIGlsdW1pbmFybGEsIG1vcmlybWUgZGUgbGEgcmlzYSBjb24gdHVzIGF1ZGlvcyB0aXBvIHBvZGNhc3QsIGRlZmluaXRpdmFtZW50ZSBjb250aWdvIG5vIHNlIHBhc2FuIHBlbmFzLCBlcmVzIHVuYSBwZXJzb25hIHByb2Z1bmRhbWVudGUgdmFsaW9zYSwgZGUgZXNhcyBxdWUgaGFjZW4gbcOhcyBib25pdG8gZWwgbXVuZG8gc2ltcGxlbWVudGUgcG9yIGV4aXN0aXIuPC9wPgogICAgPHA+RGVzcHXDqXMgZGUgdGFudG9zIGHDsW9zLCB2ZXJ0ZSBob3kgYXF1w60gbWUgZW1vY2lvbmEgcHJvZnVuZGFtZW50ZSwgc2llbnRvIHVuYSBtZXpjbGEgZGUgbm9zdGFsZ2lhIHkgb3JndWxsbywgbm9zdGFsZ2lhIHBvciByZWNvcmRhciBsYXMgYWRvbGVzY2VudGVzIHF1ZSBmdWltb3MgeSBwb3IgcGVuc2FyIHF1ZSBsYSBtaXNtYSBwZXJzb25hIGNvbiBsYSBxdWUgY29tcGFydMOtYSBtaXMgcmVjcmVvcyBlbiBlbCBjb2xlZ2lvIGFob3JhIHNlIGVzdMOhIGNhc2FuZG8geSBkYW5kbyB1biBncmFuIHBhc28gZW4gc3UgdmlkYSB5IG9yZ3VsbG8gcG9yIHZlciBlbiBsYSBtdWplciBlbiBsYSBxdWUgdGUgaGFzIGNvbnZlcnRpZG8sIHZlciB0b2RvIGxvIHF1ZSBoYXMgbG9ncmFkbywgYWNvbXBhw7FhZGEgZGVsIGhvbWJyZSBxdWUgYW1hcyB5IHF1ZSBzZSByb2LDsyB0dSBjb3JhesOzbiwgcXVlIGFkZW3DoXMgZm9ybWFyb24gdW5hIGZhbWlsaWEgaGVybW9zYSBqdW50byBjb24gbGEgRW1pIHkgbGEgVGl0aSBhIHF1aWVuZXMgYW1vIHByb2Z1bmRhbWVudGUgeSBxdWUgc2llbXByZSBlc3RhcsOpIHBhcmEgZWxsYXMuPC9wPgogICAgPHA+UmVhbG1lbnRlIGhhIHNpZG8gdW4gaG9ub3Igc2VyIHR1IGRhbWEgZGUgaG9ub3IsIGdyYWNpYXMgYW1pZ2EgcG9yIGhhY2VybWUgcGFydGUgZGUgdHUgYnJpZGUgZXJhIHkgcG9yIHBlcm1pdGlybWUgdml2aXIgZXN0ZSBwcm9jZXNvIHRhbiBkZSBjZXJjYSwgZGlzZnJ1dMOpIG11Y2hvIGF5dWRhcnRlLCBhY29uc2VqYXJ0ZSB5IGNvbnRlbmVydGUgZHVyYW50ZSB0b2RvIGVzdGUgdGllbXBvIHkgbnVuY2Egb2x2aWRhcsOpIGN1YW5kbyBhbWJhcyBub3MgbWlyYW1vcywgY29uIGxvcyBvam9zIGxsZW5vcyBkZSBsw6FncmltYXMgeSBzYWLDrWFtb3MgcXVlIGVzZSBlcmEgZWwgdmVzdGlkby48L3A+CiAgICA8cD5Fc3Blcm8gcXVlIGxhIHZpZGEgbm9zIHNpZ2EgbGxlbmFuZG8gZGUgbW9tZW50b3MgbWFyYXZpbGxvc29zLCBjb252ZXJzYWNpb25lcyBpbnRlcm1pbmFibGVzLCByaXNhcyBoYXN0YSBsbG9yYXIsIHF1ZSBsYSB2aWRhIG5vcyBwZXJtaXRhIHNlZ3VpciBlbmNvbnRyw6FuZG9ub3MgZW4gY2FkYSBldGFwYSB5IHF1ZSBjb250aW51ZW1vcyBjcmVhbmRvIHJlY3VlcmRvcyBxdWUgY29uIGVsIHBhc2FyIGRlIGxvcyBhw7FvcyBtaXJhcmVtb3MgY29uIG5vc3RhbGdpYSwgcXVlIHNpZ2Ftb3MgY2VsZWJyYW5kbyBudWVzdHJvcyB0cml1bmZvcyB5IGFsZWdyw61hcyB5IHF1ZSBlc3RlbW9zIHBhcmEgbGEgb3RyYSBlbiBsb3MgbW9tZW50b3MgcXVlIHBhcmVjZW4gbcOhcyBkaWbDrWNpbGVzLjwvcD4KICAgIDxwPkZlbGlwZSwgZGVmaW5pdGl2YW1lbnRlIGVyZXMgZWwgbWVqb3IgY29tcGxlbWVudG8gcXVlIGxhIEtpbWkgcHVkaWVyYSB0ZW5lciwgYXBhw7FhZG9yLCBlc2ZvcnphZG8sIHRyYWJhamFkb3IsIGJvbmRhZG9zbywgdW4gdHJlbWVuZG8gcGFww6EgeSBxdWUgY3VpZGEgeSBhbWEgYSBzdSBmYW1pbGlhIHBvciBzb2JyZSB0b2RhcyBsYXMgY29zYXMsIHZhbG9ybyBtdWNobyB5IGFncmFkZXpjbyB0dSBheXVkYSBjdWFuZG8gaGUgbmVjZXNpdGFkbyBjb250YXIgY29udGlnbyB5IG11Y2hhcyBncmFjaWFzIHBvciBjdWlkYXIsIGFtYXIgeSBoYWNlciBtdXkgZmVsaXogYSBtaSBhbWlnYS48L3A+CiAgICA8cD5NZSBlbW9jaW9uYSB2ZXJsb3Mgcm9kZWFkb3MgZGUgYW1vciB5IHZlcmxvcyBjcmVjZXIgY29tbyBwYXJlamEsIHVzdGVkZXMgcmVhbG1lbnRlIHNvbiB1biBlamVtcGxvIGRlIHBlcnNldmVyYW5jaWEsIGNhcmnDsW8sIGFtb3IgeSByZXNwZXRvLCBlc3RlIGNhbWlubyBubyBoYSBzaWRvIGbDoWNpbCwgcGVybyBhbnRlIHRvZG8gc2llbXByZSBlbiB1c3RlZGVzIGhhIHRyaXVuZmFkbyBlbCBhbW9yLjwvcD4KICAgIDxwPkxlcyBkZXNlbyB0b2RhIHVuYSB2aWRhIGp1bnRvcywgcXVlIG51bmNhIG9sdmlkZW4gbG8gcXVlIGxvcyBoaXpvIGVsZWdpcnNlIHkgcXVlIGF1biBlbiBsb3MgZMOtYXMgbcOhcyBkaWbDrWNpbGVzIHNpZ2FuIGNhbWluYW5kbyBkZSBsYSBtYW5vIHkgcXVlIGFsZ8O6biBkw61hIGN1YW5kbyBtaXJlbiBoYWNpYSBhdHLDoXMsIHNpZW50YW4gcXVlIGhhYmVyIGVsZWdpZG8gY29tcGFydGlyIGxhIHZpZGEgY29uIGVsIG90cm8gZnVlIGxhIG1lam9yIGRlY2lzacOzbiBxdWUgdG9tYXJvbi48L3A+CiAgICA8cD5Mb3MgcXVpZXJvIG11Y2hvIGZhbWlsaWEgTXXDsW96LUVzY29iYXIgeSBhY8OhIHNpZW1wcmUgZXN0YXLDqSBwYXJhIHVzdGVkZXMuPC9wPgogICAgPHA+TXVjaGFzIGdyYWNpYXMuPC9wPgogICAgPGRpdiBjbGFzcz0iZmlybWEiPkNvbiB0b2RvIG1pIGNhcmnDsW8sPHNwYW4gY2xhc3M9Im5vbWJyZSI+VGFtYXJhPC9zcGFuPlNhbnRpYWdvLCAyMyBkZSBvY3R1YnJlIGRlIDIwMjY8L2Rpdj4="></article>
 </main>
 
 <footer>
@@ -292,33 +284,7 @@
 
   // ---- Se abre recién desde esta fecha (hora de Chile, UTC-3 en octubre) ----
   // Para probarla antes, agrega ?probar al final del link.
-  const FECHA_APERTURA = new Date("2026-10-24T00:00:00-03:00");
-  const modoPrueba = new URLSearchParams(location.search).has("probar");
-  const bloqueado = () => !modoPrueba && Date.now() < FECHA_APERTURA.getTime();
-  const toca = document.getElementById("toca");
-
-  function actualizarCuenta() {
-    if (!bloqueado()) {
-      portada.classList.remove("bloqueado");
-      toca.textContent = "Toca el sobre para abrirlo ♡";
-      return;
-    }
-    portada.classList.add("bloqueado");
-    toca.textContent = "Este sobre se abre el sábado 24 de octubre ♡";
-    let s = Math.floor((FECHA_APERTURA - Date.now()) / 1000);
-    document.getElementById("cd-d").textContent = Math.floor(s / 86400);
-    document.getElementById("cd-h").textContent = Math.floor(s % 86400 / 3600);
-    document.getElementById("cd-m").textContent = Math.floor(s % 3600 / 60);
-    document.getElementById("cd-s").textContent = s % 60;
-    setTimeout(actualizarCuenta, 1000);
-  }
-  actualizarCuenta();
-
   function abrir() {
-    if (bloqueado()) {
-      portada.classList.remove("tiembla"); void portada.offsetWidth; portada.classList.add("tiembla");
-      return;
-    }
     if (portada.classList.contains("abriendo")) return;
     portada.classList.add("abriendo");
     tocar();
@@ -354,7 +320,33 @@
     entradas.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observador.unobserve(e.target); } });
   }, { threshold: .15 });
   function observar(el) { el.classList.add("aparece"); observador.observe(el); }
-  document.querySelectorAll(".carta p, .firma, .aparece").forEach(observar);
+  document.querySelectorAll(".aparece").forEach(observar);
+
+  // ---- El discurso se abre recién desde esta fecha (hora de Chile, UTC-3 en octubre) ----
+  // Para probarlo antes, agrega ?probar al final del link.
+  const FECHA_APERTURA = new Date("2026-10-24T00:00:00-03:00");
+  const modoPrueba = new URLSearchParams(location.search).has("probar");
+  const carta = document.getElementById("carta");
+  const candado = document.getElementById("candado");
+
+  function mostrarDiscurso() {
+    const bytes = Uint8Array.from(atob(carta.dataset.texto), c => c.charCodeAt(0));
+    carta.innerHTML = new TextDecoder().decode(bytes);
+    candado.hidden = true;
+    carta.hidden = false;
+    carta.querySelectorAll("p, .firma").forEach(observar);
+  }
+  function actualizarCuenta() {
+    const falta = FECHA_APERTURA - Date.now();
+    if (modoPrueba || falta <= 0) return mostrarDiscurso();
+    const s = Math.floor(falta / 1000);
+    document.getElementById("cd-d").textContent = Math.floor(s / 86400);
+    document.getElementById("cd-h").textContent = Math.floor(s % 86400 / 3600);
+    document.getElementById("cd-m").textContent = Math.floor(s % 3600 / 60);
+    document.getElementById("cd-s").textContent = s % 60;
+    setTimeout(actualizarCuenta, 1000);
+  }
+  actualizarCuenta();
 
   // ---- Fotos: busca fotos/01.jpg, 02.jpg ... hasta que falte una ----
   const EXTENSIONES = ["jpg", "jpeg", "png", "webp", "JPG", "JPEG", "PNG"];
